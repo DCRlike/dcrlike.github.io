@@ -1,0 +1,22 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.docs.category.快速开始": {
+    "message": "Getting Started",
+    "description": "The label for category '快速开始' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.用户手册": {
+    "message": "User Guide",
+    "description": "The label for category '用户手册' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.使用示例": {
+    "message": "Examples",
+    "description": "The label for category '使用示例' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.参考手册": {
+    "message": "Reference",
+    "description": "The label for category '参考手册' in sidebar 'docs'"
+  }
+}
