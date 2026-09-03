@@ -10,46 +10,84 @@ import { pagePath, postPath, sitePath } from '@/lib/paths';
 import { posts } from '@/lib/posts';
 
 function textOf(children: ReactNode): string {
-  if (typeof children === 'string' || typeof children === 'number') return String(children);
+  if (typeof children === 'string' || typeof children === 'number')
+    return String(children);
   if (Array.isArray(children)) return children.map(textOf).join('');
-  if (isValidElement<{ children?: ReactNode }>(children)) return textOf(children.props.children);
+  if (isValidElement<{ children?: ReactNode }>(children))
+    return textOf(children.props.children);
   return '';
 }
 
 function HomePosts() {
+  if (!posts.length)
+    return <p className="empty-posts">文章正在整理中，敬请期待。</p>;
+
   return (
     <>
       <ul className="compact-post-list">
         {posts.map((post) => (
           <li key={post.slug}>
             <a className="compact-post" href={postPath(post.slug)}>
-              <time dateTime={post.date}>{post.displayDate.replaceAll('.', '-')}</time>
+              <time dateTime={post.date}>
+                {post.displayDate.replaceAll('.', '-')}
+              </time>
               <span className="compact-post-title">{post.title}</span>
-              <ArrowRight className="compact-post-arrow" size={16} aria-hidden="true" />
+              <ArrowRight
+                className="compact-post-arrow"
+                size={16}
+                aria-hidden="true"
+              />
             </a>
           </li>
         ))}
       </ul>
-      <a className="small-button align-end" href={sitePath('/#posts')}><span>More posts</span><ArrowRight size={16} /></a>
+      <a className="small-button align-end" href={sitePath('/#posts')}>
+        <span>More posts</span>
+        <ArrowRight size={16} />
+      </a>
     </>
   );
 }
 
-const components: Components = {
-  p({ children }) {
-    if (textOf(children).trim() === '{{posts}}') return <HomePosts />;
-    return <p>{children}</p>;
-  },
-  a({ href = '', children }) {
-    const external = /^https?:\/\//.test(href);
-    const target = href.startsWith('/') ? pagePath(href) : href;
-    return (
-      <a className="small-button" href={target} target={external ? '_blank' : undefined} rel={external ? 'noreferrer' : undefined}>
-        <span>{children}</span><ArrowRight size={16} />
-      </a>
-    );
-  },
-};
+function homeComponents(sectionId: string): Components {
+  return {
+    p({ children }) {
+      if (textOf(children).trim() === '{{posts}}') return <HomePosts />;
+      return <p>{children}</p>;
+    },
+    a({ href = '', children }) {
+      const external = /^https?:\/\//.test(href);
+      const target = href.startsWith('/') ? pagePath(href) : href;
+      return (
+        <a
+          className="small-button"
+          href={target}
+          target={external ? '_blank' : undefined}
+          rel={external ? 'noreferrer' : undefined}
+        >
+          <span>{children}</span>
+          <ArrowRight size={16} />
+        </a>
+      );
+    },
+    img({ src = '', alt = '' }) {
+      const resolvedSrc = src.startsWith('../')
+        ? sitePath(`/${src.slice(3)}`)
+        : src;
+      if (sectionId === 'skills') {
+        return (
+          <span className="skill-badge">
+            <img src={resolvedSrc} alt="" aria-hidden="true" />
+            <span>{alt}</span>
+          </span>
+        );
+      }
+      if (sectionId === 'education')
+        return <img className="education-logo" src={resolvedSrc} alt={alt} />;
+      return <img src={resolvedSrc} alt={alt} />;
+    },
+  };
+}
 
 function sectionsFrom(source: string) {
   const matches = [...source.matchAll(/^##\s+(.+)$/gm)];
@@ -57,7 +95,11 @@ function sectionsFrom(source: string) {
     const title = match[1].replace(/\s+#+$/, '').trim();
     const start = (match.index ?? 0) + match[0].length;
     const end = matches[index + 1]?.index ?? source.length;
-    return { title, id: headingId(title), source: source.slice(start, end).trim() };
+    return {
+      title,
+      id: headingId(title),
+      source: source.slice(start, end).trim(),
+    };
   });
 }
 
@@ -66,9 +108,17 @@ export function HomeMarkdown({ source }: { source: string }) {
     <div className="home-content home-markdown">
       {sectionsFrom(source).map((section) => (
         <section className="profile-section" id={section.id} key={section.id}>
-          <div className="section-title"><h2>{section.title}</h2></div>
+          <div className="section-title">
+            <h2>{section.title}</h2>
+          </div>
           <div className={`section-content home-section-${section.id}`}>
-            <ReactMarkdown components={components} remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex]}>{section.source}</ReactMarkdown>
+            <ReactMarkdown
+              components={homeComponents(section.id)}
+              remarkPlugins={[remarkGfm, remarkMath]}
+              rehypePlugins={[rehypeKatex]}
+            >
+              {section.source}
+            </ReactMarkdown>
           </div>
         </section>
       ))}

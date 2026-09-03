@@ -1,12 +1,12 @@
 ---
 title: Projects
-description: Dorian 的开源项目、实验作品与学习记录。
+description: DoorChi 的开源项目、实验作品与学习记录。
 intro: 如果你觉得这里的某个想法有用或有趣，欢迎使用、讨论，或一起把它做得更好。
 ---
 
 ## Theme
 
-> ### [🍭 Dorian's ink](https://github.com/)
+> ### [🍭 DoorChi's ink](https://github.com/DCRlike/dcrlike.github.io)
 >
 > 当前这套极简个人博客主题，支持 Markdown、LaTeX、深色模式与 GitHub Pages。
 >

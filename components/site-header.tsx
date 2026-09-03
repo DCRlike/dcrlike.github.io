@@ -13,7 +13,9 @@ export function SiteHeader() {
 
   useEffect(() => {
     const stored = window.localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const prefersDark = window.matchMedia(
+      '(prefers-color-scheme: dark)',
+    ).matches;
     const nextDark = stored ? stored === 'dark' : prefersDark;
     setDark(nextDark);
     document.documentElement.classList.toggle('dark', nextDark);
@@ -37,24 +39,61 @@ export function SiteHeader() {
   }
 
   return (
-    <header id="top" className={`site-header ${menuOpen ? 'expanded' : ''} ${scrolled ? 'not-top' : ''} ${hidden ? 'is-hidden' : ''}`}>
-      <a className="wordmark" href={sitePath('/')} aria-label="Dorian 的博客首页">Dorian&apos;s ink</a>
+    <header
+      id="top"
+      className={`site-header ${menuOpen ? 'expanded' : ''} ${scrolled ? 'not-top' : ''} ${hidden ? 'is-hidden' : ''}`}
+    >
+      <a
+        className="wordmark"
+        href={sitePath('/')}
+        aria-label="DoorChi 的博客首页"
+      >
+        DoorChi&apos;s ink
+      </a>
       <div className="header-actions">
         <nav className="main-nav" aria-label="主导航">
           <a href={sitePath('/#posts')}>Blog</a>
           <a href={pagePath('/projects')}>Projects</a>
           <a href={pagePath('/links')}>Links</a>
           <a href={pagePath('/about')}>About</a>
-          <a className="search-link" href={sitePath('/#posts')} aria-label="Search"><Search size={20} /></a>
+          <a
+            className="search-link"
+            href={sitePath('/#posts')}
+            aria-label="Search"
+          >
+            <Search size={20} />
+          </a>
         </nav>
-        <button className="icon-button" type="button" onClick={toggleTheme} aria-label={dark ? '切换到浅色模式' : '切换到深色模式'}>{dark ? <Sun size={20} /> : <Moon size={20} />}</button>
-        <button className="icon-button menu-button" type="button" onClick={() => setMenuOpen((open) => !open)} aria-label={menuOpen ? '关闭菜单' : '打开菜单'}>{menuOpen ? <X size={20} /> : <Menu size={20} />}</button>
+        <button
+          className="icon-button"
+          type="button"
+          onClick={toggleTheme}
+          aria-label={dark ? '切换到浅色模式' : '切换到深色模式'}
+        >
+          {dark ? <Sun size={20} /> : <Moon size={20} />}
+        </button>
+        <button
+          className="icon-button menu-button"
+          type="button"
+          onClick={() => setMenuOpen((open) => !open)}
+          aria-label={menuOpen ? '关闭菜单' : '打开菜单'}
+        >
+          {menuOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
       </div>
       <div className="mobile-nav" aria-hidden={!menuOpen}>
-        <a href={sitePath('/#posts')} onClick={() => setMenuOpen(false)}>Blog</a>
-        <a href={pagePath('/projects')} onClick={() => setMenuOpen(false)}>Projects</a>
-        <a href={pagePath('/links')} onClick={() => setMenuOpen(false)}>Links</a>
-        <a href={pagePath('/about')} onClick={() => setMenuOpen(false)}>About</a>
+        <a href={sitePath('/#posts')} onClick={() => setMenuOpen(false)}>
+          Blog
+        </a>
+        <a href={pagePath('/projects')} onClick={() => setMenuOpen(false)}>
+          Projects
+        </a>
+        <a href={pagePath('/links')} onClick={() => setMenuOpen(false)}>
+          Links
+        </a>
+        <a href={pagePath('/about')} onClick={() => setMenuOpen(false)}>
+          About
+        </a>
       </div>
     </header>
   );

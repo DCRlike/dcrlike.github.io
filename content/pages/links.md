@@ -1,6 +1,6 @@
 ---
 title: Links
-description: Dorian 收藏的朋友、工具与网络角落。
+description: DoorChi 收藏的朋友、工具与网络角落。
 intro: 怎么可能有顺序呢，当然是随机的。这里收集了一些值得反复访问的网络角落。
 ---
 
@@ -27,7 +27,7 @@ intro: 怎么可能有顺序呢，当然是随机的。这里收集了一些值�
 想交换友链的话，可以把下面的信息添加到你的页面，再通过邮件把你的站点名称、简介、链接和头像发给我。
 
 ```site-info
-Name: Dorian's ink
+Name: DoorChi's ink
 Desc: 保持好奇，保持记录。
 Link: https://your-name.github.io/Blog/
 Avatar: https://your-name.github.io/Blog/avatar.png

@@ -244,10 +244,10 @@ ul { padding: 0; list-style: none; }
   transition: border-color .15s, box-shadow .15s;
 }
 .home-section-education blockquote:hover { border-color: color-mix(in srgb, var(--foreground) 25%, transparent); box-shadow: 0 1px 3px rgb(0 0 0 / 8%); }
+.home-section-education blockquote > p:first-child { height: 0; margin: 0; }
 .home-section-education blockquote h3 { position: relative; z-index: 1; font-size: 1.125rem; font-weight: 500; }
 .home-section-education blockquote p { position: relative; z-index: 1; color: var(--muted-foreground); }
-.home-section-education blockquote p:last-child { position: static; height: 0; }
-.home-section-education blockquote p:last-child code { position: absolute; inset-block: 0; right: 1rem; display: grid; place-items: center; border: 0; background: transparent; color: var(--foreground); font-family: inherit; font-size: 3.6rem; font-weight: 800; opacity: .08; }
+.education-logo { position: absolute; z-index: 0; top: 50%; right: 1rem; width: 4.75rem; height: 4.75rem; object-fit: contain; opacity: .16; transform: translateY(-50%); }
 .home-section-skills table, .home-section-skills tbody { display: block; width: 100%; }
 .home-section-skills thead { display: none; }
 .home-section-skills tr { display: grid; grid-template-columns: 20% 80%; column-gap: 1.25rem; margin-bottom: .75rem; }
@@ -255,6 +255,9 @@ ul { padding: 0; list-style: none; }
 .home-section-skills td { display: flex; min-width: 0; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; border: 0; }
 .home-section-skills td:first-child { color: var(--foreground); font-weight: 500; }
 .home-section-skills code { padding: .25rem .5rem; border: 1px solid var(--border); border-radius: .75rem; background: var(--muted); color: var(--muted-foreground); font-family: inherit; font-size: .875rem; }
+.home-section-skills .skill-badge { display: inline-flex; align-items: center; gap: .42rem; padding: .25rem .5rem; border: 1px solid var(--border); border-radius: .75rem; background: var(--muted); color: var(--muted-foreground); font-size: .875rem; }
+.home-section-skills .skill-badge img { width: 1rem; height: 1rem; object-fit: contain; }
+.empty-posts { color: var(--muted-foreground); }
 
 .quote-pill { margin-top: 3rem; display: inline-flex; align-items: center; gap: .75rem; padding: .5rem 1rem; border: 1px solid var(--border); border-radius: 999px; box-shadow: 0 1px 3px rgb(0 0 0 / 8%); color: var(--muted-foreground); font-size: .875rem; font-weight: 500; }
 .status-dot { position: relative; width: .5rem; height: .5rem; border-radius: 999px; background: #4ade80; }

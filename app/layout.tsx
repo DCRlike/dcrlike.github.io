@@ -10,10 +10,21 @@ const ogImage = new URL('og.png', `${siteUrl.replace(/\/?$/, '/')}`);
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: "Dorian's ink", template: "%s — Dorian's ink" },
-  description: '一个关于 Web、工程与思考的个人博客。支持 Markdown 与 LaTeX。',
-  openGraph: { title: "Dorian's ink", description: '写代码，也写下代码之外的事。', type: 'website', images: [{ url: ogImage, width: 1200, height: 630, alt: "Dorian's ink" }] },
-  twitter: { card: 'summary_large_image', title: "Dorian's ink", description: '写代码，也写下代码之外的事。', images: [ogImage] },
+  title: { default: "DoorChi's ink", template: "%s — DoorChi's ink" },
+  description:
+    '一个关于后端、基础设施与技术探索的个人博客。支持 Markdown 与 LaTeX。',
+  openGraph: {
+    title: "DoorChi's ink",
+    description: '记录后端、基础设施与计算机世界的探索。',
+    type: 'website',
+    images: [{ url: ogImage, width: 1200, height: 630, alt: "DoorChi's ink" }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "DoorChi's ink",
+    description: '记录后端、基础设施与计算机世界的探索。',
+    images: [ogImage],
+  },
 };
 
 export default function RootLayout({

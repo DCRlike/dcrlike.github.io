@@ -1,19 +1,15 @@
 ---
 title: About
-description: 关于 Dorian、常用工具，以及这个博客。
+description: 关于 DoorChi、常用工具，以及这个博客。
 ---
 
 ## General Talk
 
-Developer / Designer / ~~Professional procrastinator~~
+你好👋，我是 DoorChi。
 
-你好，我叫 Dorian，是一个兴趣使然、热爱编程的开发者。
+我就读于吉林大学，一边被电子类的专业课折磨，一边在计算机的世界遨游。
 
-我主要使用 TypeScript 和 React 构建 Web 产品，也在持续学习系统设计、AI 与视觉设计。遇到值得留下的问题，我会把探索过程整理成文章。
-
-我相信好的工具应该安静、可靠，好的内容应该经得起再次阅读。
-
-工作之外，我喜欢折腾编辑器、整理阅读清单，以及在城市里没有目的地散步。
+我的兴趣主要在 Backend / Infrastructure 方向。
 
 ## Tools
 
@@ -37,8 +33,7 @@ Developer / Designer / ~~Professional procrastinator~~
 
 | Date | School | Major |
 | --- | --- | --- |
-| 2021 — PRESENT | **某某大学** | 计算机科学与技术 |
-| 2018 — 2021 | **某某中学** | 理科实验班 |
+| PRESENT | **吉林大学** | 电子类专业 |
 
 ## Experience
 

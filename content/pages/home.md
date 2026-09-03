@@ -1,25 +1,19 @@
 ---
-title: Dorian
-description: 一个关于 Web、工程与思考的个人博客。
+title: DoorChi
+description: 一个关于后端、基础设施与技术探索的个人博客。
 avatar: D
-location: China / Shanghai
-github: https://github.com/
+location: China / Jilin
+github: https://github.com/DCRlike
 quote: 保持好奇，保持记录。
 ---
 
 ## About
 
-Developer / Designer / ~~Professional procrastinator~~
+你好👋，我是 DoorChi。
 
-你好，我叫 Dorian，是一个兴趣使然、热爱编程的开发者。
+我就读于吉林大学，一边被电子类的专业课折磨，一边在计算机的世界遨游。
 
-白天在 TypeScript 和 React 中构建产品，晚上把学习过程、踩坑记录和偶尔冒出的想法整理成文章。
-
-最近的兴趣主要在 Web Engineering / AI / Design System 方向。
-
-我喜欢折腾工具，也喜欢把复杂问题讲得简单一点。
-
-[More about me](/about)
+我的兴趣主要在 Backend / Infrastructure 方向。
 
 ## Posts
 
@@ -27,28 +21,18 @@ Developer / Designer / ~~Professional procrastinator~~
 
 ## Education
 
-> ### 某某大学
+> ![吉林大学校徽](../images/jilin-university-emblem.gif)
 >
-> 计算机科学与技术
+> ### 吉林大学
 >
-> September 2021 - Present
->
-> `UNI`
-
-> ### 某某中学
->
-> 理科实验班
->
-> September 2018 - June 2021
->
-> `SCH`
+> 电子类专业 · 在读
 
 ## Skills
 
 | Category | Skills |
 | --- | --- |
-| Web | `React.js` `Next.js` `Node.js` `TypeScript` `JavaScript` `CSS` `HTML` |
-| Programming | `Python` `Rust` `C` `C++` `SQL` |
-| Tools | `VS Code` `Vim` `Git` `Linux` `Docker` `Nginx` |
-| Design | `Figma` `Photoshop` |
+| PL | ![TypeScript](../images/brands/typescript.svg) ![Rust](../images/brands/rust.svg) ![Go](../images/brands/go.svg) |
+| Web | ![HTML](../images/brands/html5.svg) ![CSS](../images/brands/css.svg) ![React.js](../images/brands/react.svg) |
+| Backend | `PostgreSQL` `Gin` `GORM` `Tokio` `K8s` |
+| Tools | `Git` `Linux` `Docker` |
 | Other | `Markdown` `LaTeX` |
