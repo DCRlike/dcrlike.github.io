@@ -105,6 +105,7 @@ gh run view 运行编号
 | --- | --- |
 | `push.branches: [main]` | 推送到主分支时自动发布 |
 | `workflow_dispatch` | 允许在 Actions 页面手动部署 |
+| `actions: read` | 允许部署任务读取本次构建产物 |
 | `pages: write` | 允许工作流创建 Pages 部署 |
 | `id-token: write` | 让 GitHub 验证部署来源 |
 | `configure-pages` | 获取网站正式 URL 和路径 |
