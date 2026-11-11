@@ -1,27 +1,14 @@
 import type { APIRoute } from "astro";
 import satori from "satori";
 import sharp from "sharp";
-import { fontData, experimental_getFontFileURL } from "astro:assets";
-import { getFontPathByWeight } from "@/utils/getFontPathByWeight";
+import { readFile } from "node:fs/promises";
 import config from "@/config";
 
-export const GET: APIRoute = async context => {
-  const fonts = fontData["--font-google-sans-code"];
-  const regularFontPath = getFontPathByWeight(fonts, 400);
-  const boldFontPath = getFontPathByWeight(fonts, 700);
-
-  if (regularFontPath === undefined || boldFontPath === undefined) {
-    throw new Error("Cannot find the font path.");
-  }
-
-  const [regularData, boldData] = await Promise.all([
-    fetch(experimental_getFontFileURL(regularFontPath, context.url)).then(res =>
-      res.arrayBuffer()
-    ),
-    fetch(experimental_getFontFileURL(boldFontPath, context.url)).then(res =>
-      res.arrayBuffer()
-    ),
-  ]);
+export const GET: APIRoute = async () => {
+  const regularData = await readFile(
+    "public/fonts/jetbrains-mono-latin-400-normal.woff"
+  );
+  const boldData = regularData;
 
   const svg = await satori(
     {
@@ -35,7 +22,7 @@ export const GET: APIRoute = async context => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          fontFamily: "Google Sans Code",
+          fontFamily: "JetBrains Mono",
         },
         children: [
           {
@@ -154,13 +141,13 @@ export const GET: APIRoute = async context => {
       embedFont: true,
       fonts: [
         {
-          name: "Google Sans Code",
+          name: "JetBrains Mono",
           data: regularData,
           weight: 400,
           style: "normal",
         },
         {
-          name: "Google Sans Code",
+          name: "JetBrains Mono",
           data: boldData,
           weight: 700,
           style: "normal",

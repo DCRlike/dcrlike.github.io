@@ -107,18 +107,21 @@ const ogImage = ogImageUrl
   pubDatetime={pubDatetime}
   modDatetime={modDatetime}
 >
-  <Header />
+  <Header postLayout />
 
   <BackButton />
 
   <main
     id="main-content"
-    class:list={["app-layout", { "mt-8": !config.features.showBackButton }]}
+    class:list={[
+      "app-layout post-layout",
+      { "mt-8": !config.features.showBackButton },
+    ]}
     data-pagefind-body
   >
     <h1
       style={{ viewTransitionName: toTransitionName(post.id) }}
-      class="text-accent inline-block text-2xl font-bold sm:text-3xl"
+      class="text-accent text-center text-2xl font-bold sm:text-3xl"
     >
       {title}
     </h1>
@@ -143,7 +146,7 @@ const ogImage = ogImageUrl
         id="article"
         class:list={[
           "w-full",
-          "app-prose max-w-app",
+          "app-prose max-w-none",
           "prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)",
         ]}
       >
@@ -176,6 +179,12 @@ const ogImage = ogImageUrl
   </main>
   <Footer />
 </PostLayout>
+
+<style>
+  #article {
+    overflow-wrap: anywhere;
+  }
+</style>
 
 <script is:inline data-astro-rerun>
   function createProgressBar() {

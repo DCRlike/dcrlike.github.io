@@ -1,0 +1,42 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Main from "@/components/Main.astro";
+import Footer from "@/components/Footer.astro";
+import Card from "@/components/Card.astro";
+import { getSortedPosts } from "@/utils/getSortedPosts";
+import config from "@/config";
+
+export function getStaticPaths() {
+  return ["tech", "life"].map(category => ({
+    params: { category },
+  }));
+}
+
+const category = Astro.params.category!;
+const title = category[0].toUpperCase() + category.slice(1);
+const posts = getSortedPosts(await getCollection("posts")).filter(
+  ({ id, data }) =>
+    id.toLowerCase().startsWith(`${category}/`) ||
+    data.tags.some(tag => tag.toLowerCase() === category)
+);
+---
+
+<Layout title={`${title} | ${config.site.title}`}>
+  <Header />
+  <Main pageTitle={title} pageDesc="">
+    {
+      posts.length ? (
+        <ul>
+          {posts.map(post => (
+            <Card {...post} />
+          ))}
+        </ul>
+      ) : (
+        <p>这个栏目暂时还没有文章。</p>
+      )
+    }
+  </Main>
+  <Footer />
+</Layout>

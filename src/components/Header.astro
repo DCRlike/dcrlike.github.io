@@ -12,6 +12,9 @@ import { stripBase, stripLocale } from "@/utils/withBase";
 import { useTranslations } from "@/i18n";
 import config from "@/config";
 
+type Props = { postLayout?: boolean };
+
+const { postLayout = false } = Astro.props;
 const { site, features } = config;
 
 const locale = Astro.currentLocale ?? config.site.lang;
@@ -43,7 +46,10 @@ const isActive = (path: string) => {
 </a>
 
 <header
-  class="app-layout flex flex-col items-center justify-between sm:flex-row"
+  class:list={[
+    "app-layout flex flex-col items-center justify-between sm:flex-row",
+    { "post-layout": postLayout },
+  ]}
 >
   <div
     class="border-border bg-background relative flex w-full items-baseline justify-between border-b py-4 sm:items-center sm:py-6"
@@ -74,30 +80,23 @@ const isActive = (path: string) => {
         id="menu-items"
         class="[&>li>a]:hover:text-accent mt-4 hidden w-44 grid-cols-2 place-content-center gap-2 sm:mt-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0 sm:[&>li]:h-8 [&>li>a]:block [&>li>a]:px-4 [&>li>a]:py-3 [&>li>a]:text-center [&>li>a]:font-medium sm:[&>li>a]:px-2 sm:[&>li>a]:py-1"
       >
-        <li class="col-span-2">
-          <a
-            href={getRelativeLocaleUrl(locale, "posts")}
-            class:list={{ "active-nav": isActive("/posts") }}
-          >
-            {t.nav.posts}
-          </a>
-        </li>
-        <li class="col-span-2">
-          <a
-            href={getRelativeLocaleUrl(locale, "tags")}
-            class:list={{ "active-nav": isActive("/tags") }}
-          >
-            {t.nav.tags}
-          </a>
-        </li>
-        <li class="col-span-2">
-          <a
-            href={getRelativeLocaleUrl(locale, "about")}
-            class:list={{ "active-nav": isActive("/about") }}
-          >
-            {t.nav.about}
-          </a>
-        </li>
+        {
+          [
+            { path: "tech", label: "Tech" },
+            { path: "life", label: "Life" },
+            { path: "project", label: "Project" },
+            { path: "about", label: "About" },
+          ].map(({ path, label }) => (
+            <li class="col-span-2">
+              <a
+                href={getRelativeLocaleUrl(locale, path)}
+                class:list={{ "active-nav": isActive(`/${path}`) }}
+              >
+                {label}
+              </a>
+            </li>
+          ))
+        }
         {
           features.showArchives && (
             <li class="col-span-2">

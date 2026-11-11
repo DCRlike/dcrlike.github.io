@@ -6,6 +6,10 @@
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @layer base {
+  html {
+    font-size: 112.5%;
+  }
+
   * {
     @apply border-border outline-accent/75;
     scrollbar-width: auto;
@@ -28,6 +32,12 @@
 
 @utility app-layout {
   @apply max-w-app mx-auto w-full px-4;
+}
+
+/* Shared width keeps the article and its header aligned. */
+.post-layout {
+  width: calc(60vw + 2rem);
+  max-width: none;
 }
 
 @utility active-nav {

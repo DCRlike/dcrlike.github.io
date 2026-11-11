@@ -72,16 +72,11 @@ Inside of AstroPaper, you'll see the following folders and files:
 └── astro.config.ts
 ```
 
-All blog posts are stored in the `src/content/posts/` directory. You can organise posts into subdirectories — the subdirectory name becomes part of the post URL.
+Blog posts are stored in `src/content/posts/tech/` and `src/content/posts/life/`. Edit `src/content/pages/project.md` and `src/content/pages/about.md` for the Project and About pages. See [内容管理.md](内容管理.md) for details.
 
 ## 📖 Documentation
 
-Documentation can be read in two formats\_ _markdown_ & _blog post_.
-
-- Configuration - [markdown](src/content/posts/how-to-configure-astropaper-theme.md) | [blog post](https://astro-paper.pages.dev/posts/how-to-configure-astropaper-theme/)
-- Add Posts - [markdown](src/content/posts/adding-new-post.md) | [blog post](https://astro-paper.pages.dev/posts/adding-new-posts-in-astropaper-theme/)
-- Customize Color Schemes - [markdown](src/content/posts/customizing-astropaper-theme-color-schemes.md) | [blog post](https://astro-paper.pages.dev/posts/customizing-astropaper-theme-color-schemes/)
-- Predefined Color Schemes - [markdown](src/content/posts/predefined-color-schemes.md) | [blog post](https://astro-paper.pages.dev/posts/predefined-color-schemes/)
+See the [AstroPaper documentation](https://astro-paper.pages.dev/posts/) for theme guides, and [内容管理.md](内容管理.md) for this blog’s content structure.
 
 ## 💻 Tech Stack
 
