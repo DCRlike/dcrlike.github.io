@@ -55,6 +55,10 @@
       }
     }
 
+    .katex-display {
+      @apply text-foreground overflow-x-auto overflow-y-hidden;
+    }
+
     figcaption {
       @apply opacity-75;
     }
